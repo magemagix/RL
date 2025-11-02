@@ -36,3 +36,27 @@ uv venv --python 3.12 # We want be sure that version is 3.12
 
 We’re almost there! But before we get our virtual rocket flying, there are a couple of dependencies we need to take care of... 🚀
 
+### 🖥️ Install Xvfb & SWIG:
+
+First up, we need **Xvfb** (X Virtual Framebuffer) – it’s like a phantom display server that runs in the background, so we don’t need a real screen to see things in action. 🖥️✨
+
+Then, we need **SWIG** (Simplified Wrapper and Interface Generator) for Box2D in Gymnasium.
+
+Install them with:
+
+```bash
+sudo apt-get install xvfb
+sudo apt-get install swig
+```
+
+### 📥 Install Project Dependencies:
+
+Time to install the necessary packages for the experiment so everything works as expected! 💻✨
+
+Make sure you're in the **examples/001/** directory and run:
+
+
+```bash
+# you must be in path examples/001/
+uv add -r requirements.txt
+```
