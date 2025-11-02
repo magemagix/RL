@@ -1,0 +1,6 @@
+# Ignore the following regardless of their location
+**/.venv/
+**/*.ipynb_checkpoints
+**/uv.lock
+**/pyproject.toml
+**/.python-version
