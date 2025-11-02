@@ -60,3 +60,25 @@ Make sure you're in the **examples/001/** directory and run:
 # you must be in path examples/001/
 uv add -r requirements.txt
 ```
+
+
+### 🧑‍🏫 Configure Jupyter Notebooks:
+
+Almost ready! Now we’ll set up **Jupyter** with some sweet extensions to make your coding experience even smoother. 🎉
+
+```bash
+uv add  jupyter_contrib_nbextensions && uv run jupyter contrib nbextension install --user  && uv run jupyter nbextension enable varInspector/main && uv run jupyter nbextension enable spellchecker/main  && uv run jupyter nbextension enable codefolding/main && uv run jupyter nbextension enable hinterland/hinterland && uv run jupyter nbextension enable execute_time/ExecuteTime --user
+ ```
+
+ ### 🚀 Launch Jupyter Notebook:
+
+Now that everything is set up, it’s time to launch Jupyter and start experimenting with LunaLander! 🎮
+
+Run the following to start the notebook:
+
+```bash
+uv run jupyter notebook --ip='*' --NotebookApp.token='' --NotebookApp.password=''
+```
+There you go! Everything’s ready for you to start landing on the moon with **LunaLander**. 🌙 
+
+Let’s make some magic happen! ✨🚀
