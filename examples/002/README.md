@@ -1,3 +1,13 @@
+<p align="center">
+  <img src="./Taxi-value-iteration.gif" alt="Taxi Agent in Action" width="500"/><br>
+  <em>The Taxi agent efficiently navigating the 5×5 grid!</em>
+</p>
+
+<br><br>
+
+
+
+
 # 🚖 Taxi with Value Iteration 🚀
 
 Welcome to the **Taxi** environment, where we’ll guide our little yellow taxi around the city using the **value iteration algorithm**! 🌟
