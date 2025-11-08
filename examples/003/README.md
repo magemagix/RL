@@ -128,3 +128,82 @@ returns all transitions from state **1** after taking **action 4 (pickup)**.
 These probabilities are essential for computing expected returns in **value iteration**.
 
 ---
+
+
+
+
+
+
+
+
+
+
+## 🛠️ Let’s Set Up Taxi-v3! 🚕
+
+Before we start driving around with **Taxi-v3**, let’s get everything ready! 🙌
+You’ll need the **uv** package and project manager installed to make sure your environment is clean, reproducible, and easy to manage. 🧰
+
+You can grab **uv** from its [GitHub repository](https://github.com/astral-sh/uv), or just run this one-liner to install it:
+
+```bash
+# On macOS and Linux.
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Now, why are we using **uv**? 🤔
+Because it’s our pit crew! 🏎️ It ensures that every project has the right Python setup and dependencies — no conflicts, no mess.
+This way, you’ll be able to run **Taxi-v3** smoothly without any detours. 🎯
+
+---
+
+### 📦 Initialize the Example:
+
+Let’s create a clean environment for our Taxi project. 🚦
+
+```bash
+# Pin Python version
+uv python pin 3.12
+
+# Initialize a new project
+uv init 003 && cd 003
+# we are in examples/003
+# Remove the default main.py if created
+rm main.py
+
+# Create a virtual environment to ensure version consistency
+uv venv --python 3.12 # just for sure
+```
+
+Almost ready! But before we hit the road, we need to install a few dependencies. 🧩
+
+---
+
+### 📥 Install Project Dependencies:
+
+Time to install the necessary packages for the experiment so everything works as expected! 💻✨
+
+Make sure you're in the **examples/003/** directory and run:
+
+
+```bash
+# you must be in path examples/003/
+uv add -r requirements.txt
+```
+
+---
+
+### 🚀 Launch Jupyter Notebook:
+
+Now that everything’s set up, let’s start our engines and open Jupyter to begin exploring the **Taxi-v3** world! 🎮
+
+```bash
+uv run jupyter notebook --ip='*' --NotebookApp.token='' --NotebookApp.password=''
+```
+
+There you go! Everything’s ready for you to start training and testing your **Taxi** agent. 🚕
+
+With **Policy Iteration**, your agent will discover the **optimal strategy** — moving efficiently, avoiding penalties, and maximizing rewards.
+
+Let’s make this taxi the most efficient cab in the city! 💛✨
+
+---
