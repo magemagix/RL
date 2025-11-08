@@ -130,11 +130,69 @@ These probabilities are essential for computing expected returns in **value iter
 ---
 
 
+## 🧠 Policy Iteration Algorithm
 
+The **Policy Iteration** algorithm is a dynamic programming approach used to find the optimal policy in Markov Decision Processes (MDPs). It works by alternating between **policy evaluation** (calculating the value function for a fixed policy) and **policy improvement** (updating the policy based on the current value function) until convergence.
 
+---
 
+### 🧾 Algorithm: Policy Iteration
 
+```markdown
+**Input:** 
+  - Environment with state set S and action set A
+  - Transition probabilities P(s' | s, a)
+  - Rewards R(s, a, s')
+  - Discount factor γ ∈ [0, 1)
+  - Convergence threshold θ
 
+**Output:** 
+  - Optimal policy π*(s)
+  - Optimal state-value function V*(s)
+
+**Algorithm Steps:**
+
+1. Initialize policy π(s) arbitrarily for all s ∈ S
+   (e.g., random or random actions)
+
+2. Repeat until convergence:
+   
+   a. **Policy Evaluation**:
+      - Initialize V(s) = 0 for all s ∈ S
+      - Repeat until convergence:
+         Δ ← 0
+         For each state s ∈ S:
+             - Compute value function for the current policy π(s):
+               V_new(s) = Σ [ P(s'|s, π(s)) * (R(s, π(s), s') + γ * V(s')) ] over all s'
+             - Update change magnitude:
+               Δ = max(Δ, |V_new(s) - V(s)|)
+             - Set V(s) ← V_new(s)
+         If Δ < θ, then stop (converged)
+
+   b. **Policy Improvement**:
+      - For each state s ∈ S:
+          - Update policy based on the current value function:
+            π_new(s) = argmax_a [ Σ P(s'|s, a) * (R(s, a, s') + γ * V(s')) ]
+      - If π_new = π, then stop (policy is stable)
+      - Otherwise, set π ← π_new (update policy)
+
+3. Return π*(s), V*(s)
+```
+
+---
+
+### 🧭 Intuition
+
+* **Step 1:** Start with an arbitrary initial policy (e.g., random).
+* **Step 2:**
+  * **Policy Evaluation**: Compute the value of each state under the current policy by solving the Bellman equations.
+  * **Policy Improvement**: Improve the policy by choosing the action that maximizes the expected return based on the current value function.
+* **Step 3:** Repeat *step 2* until the policy stabilizes (i.e., no further improvements can be made) or reaches the maximum iteration. If policy stabilizes, it means that the optimal policy has been found.
+* **Step 4:** Return the **optimal policy** and the corresponding value function.
+
+---
+
+This approach ensures convergence to the optimal policy, though it may require multiple iterations of policy evaluation and improvement.
 
 
 
