@@ -219,11 +219,14 @@ This way, you’ll be able to run **Taxi-v3** smoothly without any detours. 🎯
 Let’s create a clean environment for our Taxi project. 🚦
 
 ```bash
+# we need to be in examples/003
+cd examples/003
+
 # Pin Python version
 uv python pin 3.12
 
 # Initialize a new project
-uv init 003 && cd 003
+uv init
 # we are in examples/003
 # Remove the default main.py if created
 rm main.py
