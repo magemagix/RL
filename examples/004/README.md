@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="./FrozenLake-MC-first-visit.gif" alt="Taxi Agent in Action" width="500"/><br>
+  <img src="./FrozenLake-MC-first-visit.gif" alt="Taxi Agent in Action" width="300"/><br>
   <em>The FrozenLake agent efficiently navigating the 4×4 grid!</em>
 </p>
 
@@ -129,21 +129,19 @@ Here is another version of this algorithm, with explanations on how the **first-
 
 1. **Initialize:**
 
-   * $Q(s, a)$ arbitrarily for all $s \in S, a \in A(s)$ (commonly zeros).
-   * $N(s, a) \gets 0$ (a counter for the number of first visits to $(s, a)$).
-   * $\text{Returns}(s, a) \gets []$ (to store all returns for each first visit).
+   * Q(s, a) arbitrarily for all s ∈ S, a ∈ A(s) (commonly zeros).
+   * N(s, a) ← 0 (a counter for the number of first visits to (s, a)).
+   * Returns(s, a) ← [] (to store all returns for each first visit).
 
 2. **Loop forever (or for a fixed number of episodes):**
 
-   1. Generate an **episode** following the current **ε-greedy policy** based on $Q$:
+   1. Generate an **episode** following the current **ε-greedy policy** based on Q:
 
-      $$
-      S_0, A_0, R_1, S_1, A_1, R_2, \dots, S_{T-1}, A_{T-1}, R_T
-      $$
+      ![Episode formula](https://latex.codecogs.com/png.latex?S_0%2C%20A_0%2C%20R_1%2C%20S_1%2C%20A_1%2C%20R_2%2C%20...%2C%20S_{T-1}%2C%20A_{T-1}%2C%20R_T)
 
       > **Note:** At the beginning, exploration is high (ε large). After half the episodes, decay ε to favor exploitation.
 
-   2. Initialize return $G \gets 0$.
+   2. Initialize return `G = 0`.
 
    3. **Traverse the episode backward** (from last step to first step):
 
@@ -153,36 +151,26 @@ Here is another version of this algorithm, with explanations on how the **first-
 
       * Update the return:
 
-        $$
-        G \gets \gamma G + R_{t+1}
-        $$
+        ![G update](https://latex.codecogs.com/png.latex?G%20%5Cgets%20%5Cgamma%20G%20&plus;%20R_{t%2B1})
 
-      * **First-visit check (forward order):**
-        If the pair $(S_t, A_t)$ has **not been visited earlier in this episode**:
+      * **First-visit check (forward order):**  
+        If the pair (S_t, A_t) has **not been visited earlier in this episode**:
 
-        $$
-        (S_t, A_t) \notin { (S_0, A_0), \dots, (S_{t-1}, A_{t-1}) }
-        $$
+        ![First-visit check](https://latex.codecogs.com/png.latex?(S_t%2C%20A_t)%20%5Cnotin%20%7B(S_0%2C%20A_0)%2C%20...%2C%20(S_{t-1}%2C%20A_{t-1})%7D)
 
         do the following:
 
         1. Increment the visit counter:
 
-           $$
-           N(S_t, A_t) \gets N(S_t, A_t) + 1
-           $$
+           ![N update](https://latex.codecogs.com/png.latex?N(S_t%2C%20A_t)%20%5Cgets%20N(S_t%2C%20A_t)%20&plus;%201)
 
-        2. Append return $G$ to the list:
+        2. Append return G to the list:
 
-           $$
-           \text{Returns}(S_t, A_t).append(G)
-           $$
+           ![Append return](https://latex.codecogs.com/png.latex?Returns(S_t%2C%20A_t).append(G))
 
         3. Update the action-value estimate (average of returns):
 
-           $$
-           Q(S_t, A_t) \gets \text{mean}(\text{Returns}(S_t, A_t))
-           $$
+           ![Q update](https://latex.codecogs.com/png.latex?Q(S_t%2C%20A_t)%20%5Cgets%20mean(Returns(S_t%2C%20A_t)))
 
 
 
