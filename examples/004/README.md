@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="./FrozenLake-MC-first-visit.gif" alt="Taxi Agent in Action" width="500"/><br>
+  <img src="./FrozenLake-MC-first-visit.gif" alt="Taxi Agent in Action" width="300"/><br>
   <em>The FrozenLake agent efficiently navigating the 4×4 grid!</em>
 </p>
 
