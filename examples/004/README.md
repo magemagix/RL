@@ -212,11 +212,14 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ### 📦 Initialize the Example
 
 ```bash
+# we need to be in examples/004
+cd examples/004
+
 # Pin Python version
 uv python pin 3.12
 
 # Initialize new project
-cd 004 && uv init
+uv init
 rm main.py
 
 # Create virtual environment

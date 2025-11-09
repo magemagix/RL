@@ -27,6 +27,9 @@ Now, why are we using **uv**? 🤔 It’s our secret weapon to set up the perfec
 ### 📦 Initialize the Example:
 
 ```bash
+# we need to be in examples/003
+cd examples/001
+
 # you must be in path examples/001/
 uv python pin 3.12
 uv init 
