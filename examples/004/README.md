@@ -102,27 +102,35 @@ At the beginning, the agent knows nothing about the environment. To encourage le
 
 ### 🧾 Algorithm: Monte Carlo First-Visit Control
 
-```markdown
+
 **Input:**
-  - Environment with state set S and action set A
-  - Discount factor γ ∈ [0, 1)
-  - Number of episodes N
-  - Exploration rate ε for ε-greedy policy
+
+* Environment with state set **S** and action set **A**
+* Discount factor **γ ∈ [0, 1)**
+* Number of episodes **N**
+* Exploration rate **ε** for ε-greedy policy
 
 **Output:**
-  - Optimal action-value function Q*(s, a)
-  - Optimal policy π*(s)
+
+* Optimal action-value function **Q*(s, a)**
+* Optimal policy **π*(s)**
 
 **Steps:**
-1. Initialize Q(s, a) and returns[(s,a)] arbitrarily (e.g., zeros)
-2. For each episode 1..N:
-   a. Generate an episode using ε-greedy policy
-   b. Compute return Gt for each step in **reverse order**
-   c. Update Q(s, a) **only for first-visit** in episode
-   d. Optionally decay ε after half of episodes
-3. Derive optimal policy π*(s) = argmax_a Q(s, a)
-```
+
+1. Initialize **Q(s, a)** and **returns[(s, a)]** arbitrarily (e.g., zeros)
+2. For each episode **1..N**:
+
+   * Generate an episode using **ε-greedy policy**
+   * Compute return **Gₜ** for each step in **reverse order**
+   * Update **Q(s, a)** **only for first-visit** in the episode
+   * Optionally decay **ε** after half of episodes
+3. Derive optimal policy **π*(s) = argmaxₐ Q(s, a)**
+
+
+
+
 <br><br>
+
 Here is another version of this algorithm, with explanations on how the **first-visit updates** are performed.
 
 
